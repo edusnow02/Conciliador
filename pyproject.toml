@@ -1,0 +1,27 @@
+[build-system]                              # sección: cómo se construye/instala el paquete
+requires = ["setuptools>=68"]               # herramienta de construcción que pip descargará
+build-backend = "setuptools.build_meta"     # le dice a pip que use setuptools para instalarlo
+
+[project]                                   # sección: datos del proyecto
+name = "conciliador"                        # nombre del paquete (el mismo que la carpeta en src/)
+version = "0.1.0"                           # versión inicial; 0.x indica "todavía en desarrollo"
+description = "Núcleo de conciliación SIFEN-bancos"  # descripción corta
+requires-python = ">=3.12"                  # regla no negociable: Python 3.12 o más
+dependencies = [                            # librerías que el programa necesita para funcionar
+  "fastapi>=0.110",                         # framework web para los endpoints (/health, /facturas)
+  "uvicorn[standard]>=0.29",                # servidor que ejecuta la app de FastAPI
+  "sqlalchemy>=2.0,<3",                     # acceso a la base; <3 evita un salto de versión que rompa el código
+  "python-dotenv>=1.0",                     # lee variables del archivo .env (como DATABASE_URL)
+]
+
+[project.optional-dependencies]             # extras que solo necesitás al desarrollar
+dev = [
+  "pytest>=8",                              # corre las pruebas
+  "httpx>=0.27",                            # lo necesita el cliente de pruebas de FastAPI para simular requests
+]
+
+[tool.setuptools.packages.find]             # dónde buscar el código del paquete
+where = ["src"]                             # "está dentro de src/" (el src layout)
+
+[tool.pytest.ini_options]                   # configuración de pytest
+testpaths = ["tests"]                       # pytest busca pruebas solo en tests/
