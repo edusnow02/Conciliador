@@ -1,9 +1,0 @@
-pyproject.toml
-src/conciliador/__init__.py
-src/conciliador/db.py
-src/conciliador/montos.py
-src/conciliador.egg-info/PKG-INFO
-src/conciliador.egg-info/SOURCES.txt
-src/conciliador.egg-info/dependency_links.txt
-src/conciliador.egg-info/requires.txt
-src/conciliador.egg-info/top_level.txt

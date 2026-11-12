@@ -1,2 +1,0 @@
-conciliador
-ingesta_bancos
