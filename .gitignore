@@ -1,1 +1,13 @@
+# Entorno virtual: se recrea con pip install, no se guarda
 .venv/
+# Secretos: claves y la DATABASE_URL real
+.env
+# Datos reales de clientes y archivos generados por el generador
+datos/
+# Archivos compilados que Python crea solo
+__pycache__/	
+*.pyc
+# Metadatos que crea pip install -e
+*.egg-info/
+# Caché interna de pytest
+.pytest_cache/
